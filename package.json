@@ -1,0 +1,20 @@
+{
+  "name": "lb3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "parcel": "^2.7.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.6.0",
+    "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "run": "parcel src/*",
+    "watch": "watch src/*"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}
