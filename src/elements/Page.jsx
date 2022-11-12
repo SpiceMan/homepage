@@ -13,8 +13,6 @@ export default Page = ({ title, content, centered, error }) => {
 
     return <Container>
         <h1 className={ centered && "text-center"}>{title}</h1>
-        <h2 className={ centered && "text-center"}>{title}</h2>
-        <h3 className={ centered && "text-center"}>{title}</h3>
         <div className={ centered && "text-center"} >{content}</div>
     </Container>;
 };

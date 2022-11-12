@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 
 const PostNavigation = () => {
-    return <h1>Post Navigation</h1>;
+    return <h3>Post Navigation</h3>;
 }
 
 const Navigation = () => {
-    return <h1>Links</h1>;
+    return <h3>Links</h3>;
 };
 
 
