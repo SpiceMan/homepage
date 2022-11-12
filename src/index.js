@@ -3,16 +3,16 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 
+import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./fonts/fonts.css";
-import "./index.css";
 
 import Header from "./elements/Header";
 import Footer from "./elements/Footer";
 import NavigationRouter from "./elements/Navigation";
 
 import UserContext from "./contexts/UserContext";
-import StashContext from "./contexts/StashContext";
+import StashContext, { Stash } from "./contexts/StashContext";
 
 import { TopRouter } from "./pages/Top";
 
@@ -22,7 +22,7 @@ const api = {
 
 const Content = () => {
     const [user, setUser] = useState({ name: "anonymous", roles: ["guest"] });
-    const [stash, setStash] = useState({});
+    const [stash, setStash] = useState(new Stash());
     
     const userContext = useContext(UserContext);
 

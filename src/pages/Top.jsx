@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
+import Error from "./Error";
 import PostRouter from "./Post";
 
 export const Top = () => {
@@ -14,6 +15,7 @@ export const TopRouter = () => {
         <Routes>
             <Route path="/post/*" element={<PostRouter />} />
             <Route path="/" element={<Top />} />
+            <Route path="/error/*" element={<Error /> } />
         </Routes>
     );
 };
