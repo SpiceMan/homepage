@@ -8,11 +8,13 @@
     "parcel": "^2.7.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.3"
   },
   "scripts": {
-    "run": "parcel src/*",
-    "watch": "watch src/*"
+    "start": "parcel src/*.*",
+    "watch": "watch src/*.*",
+    "build": "rm -rf dist && parcel build src/index.js"
   },
   "devDependencies": {
     "process": "^0.11.10"

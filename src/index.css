@@ -1,5 +1,42 @@
-@media (min-width: 980px) { 
-    body { 
-        padding-top: 60px; 
-    } 
+body {
+    padding-top: 60px;
+    color: white;
+    background-color: black;
+    font-family: 'robotoregular';
+}
+
+nav {
+    border-radius: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-family: "oswaldregular";
+}
+
+nav {
+    font-family: "roboto_condensedregular";
+}
+
+h1 { 
+    font-size: 1.8em;
+}
+h2 { 
+    font-size: 1.6em;
+}
+h3 { 
+    font-size: 1.4em;
+}
+
+footer {
+    bottom: 0px;
+    width: 100%;
+    color: white;
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+    border-radius: 15px;
+    position: fixed;
+    text-align: center;
+    vertical-align: middle;
 }
