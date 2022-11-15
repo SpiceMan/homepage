@@ -5,7 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^5.2.2",
-    "parcel": "^2.7.0",
+    "marked": "^4.2.2",
+    "parcel": "2.7.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
     "react-dom": "^18.2.0",
@@ -17,6 +18,7 @@
     "build": "rm -rf dist && parcel build src/index.js"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "2.7.0",
     "process": "^0.11.10"
   }
 }

@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 
-import "./index.css";
+import "./index.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./fonts/fonts.css";
 
@@ -13,21 +13,19 @@ import NavigationRouter from "./elements/Navigation";
 
 import UserContext from "./contexts/UserContext";
 import StashContext, { Stash } from "./contexts/StashContext";
+import ConfigContext from "./contexts/ConfigContext";
+import config from "./config";
 
 import { TopRouter } from "./pages/Top";
-
-const api = {
-
-};
+import User from "./classes/User";
 
 const Content = () => {
-    const [user, setUser] = useState({ name: "anonymous", roles: ["guest"] });
-    const [stash, setStash] = useState(new Stash());
+    const [user, setUser] = useState(new User("anonymous", ["guest"] ));
+    const [stash, setStash] = useState(Stash);
     
-    const userContext = useContext(UserContext);
-
     return (
         <UserContext.Provider value={user}>
+        <ConfigContext.Provider value={config}>
         <StashContext.Provider value={stash}>
             <Header />
             <Container>
@@ -38,6 +36,7 @@ const Content = () => {
             </Container>
             <Footer />
         </StashContext.Provider>
+        </ConfigContext.Provider>
         </UserContext.Provider>
     );
 };

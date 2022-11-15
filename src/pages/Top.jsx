@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Error from "./Error";
 import PostRouter from "./Post";
+import Login from "./Login";
 
 export const Top = () => {
     return <>
@@ -13,6 +14,7 @@ export const Top = () => {
 export const TopRouter = () => {
     return (
         <Routes>
+            <Route path="/login" element={<Login /> } />
             <Route path="/post/*" element={<PostRouter />} />
             <Route path="/" element={<Top />} />
             <Route path="/error/*" element={<Error /> } />
