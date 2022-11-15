@@ -1,0 +1,88 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.dark-mode {
+    
+    $body-bg: black;
+    $card-bg: rgb(78, 78, 78);
+    $input-bg: var(--bs-bg-opacity) !important;
+
+    $primary: rgb(0, 183, 255);
+    $secondary: white;
+    $danger: rgb(255, 60, 60);
+    $success: rgb(1, 197, 1);
+
+    $light: #aaa;
+    
+    $theme-colors: (
+        "primary": $primary,
+        "secondary": $secondary,
+        "success": $success,
+        "danger": $danger,
+        "info": $indigo,
+        "dark": $dark,
+        "light": $light,
+    );
+
+    $input-color: $light;
+    $input-focus-color: $input-color;
+
+    color: white;
+
+    $dark: white;
+    $light: $body-bg;
+    $modal-content-bg: $card-bg;
+
+    $carousel-indicator-height: 0px;
+    
+    --#{$variable-prefix}body-color: #{$body-color};
+    --#{$variable-prefix}body-bg: #{$body-bg};
+
+    @import "~bootstrap/scss/bootstrap";
+}
+
+body {
+    padding-top: 60px;
+    font-family: 'robotoregular';
+}
+
+
+nav {
+    border-radius: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "oswaldregular";
+}
+
+nav {
+    font-family: "roboto_condensedregular";
+}
+
+h1 { 
+    font-size: 1.5rem;
+}
+h2 { 
+    font-size: 1.25rem;
+}
+h3 { 
+    font-size: 1.1em;
+}
+
+footer {
+    bottom: 0px;
+    width: 100%;
+    color: white;
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+    border-radius: 15px;
+    position: fixed;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.input-textarea {
+    height: 300px;
+}
