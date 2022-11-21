@@ -4,13 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^5.2.2",
-    "marked": "^4.2.2",
-    "parcel": "2.7.0",
+    "parcel": "^2.8.0",
     "react": "^18.2.0",
+    "react-animejs": "^0.5.6",
     "react-bootstrap": "^2.6.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.3"
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "start": "parcel src/*.*",
@@ -18,7 +16,7 @@
     "build": "rm -rf dist && parcel build src/index.js"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "2.7.0",
+    "@parcel/transformer-sass": "2.8.0",
     "process": "^0.11.10"
   }
 }
