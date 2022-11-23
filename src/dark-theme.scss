@@ -1,0 +1,69 @@
+$primary: #2ba4cb;
+$alternate: #195f76;
+$secondary: #722bcb;
+
+$black: #071b21;
+$white: #f2f2f2;
+
+.dark-theme {
+    color: $primary;
+    background: $black;
+
+    a,
+    a:visited,
+    a:active,
+    a:hover {
+        color: $primary;
+    }
+
+    .menu-animation, .content-animation {
+        background-color: $alternate;
+    }
+
+    div.navbar-wrapper, nav {
+        background-color: $alternate;
+        color: $white;
+    }
+
+    nav {
+        a,
+        a:visited,
+        a:active,
+        a:hover,
+        .dropdown-toggle.nav-link {
+            color: $white;
+        }
+
+        .underline {
+            background-color: $white;
+        }
+
+        .nav-item.dropdown {
+            background-color: $alternate;
+            color: $white;
+        }
+
+        a.navbar-brand {
+            color: $white;
+        }
+
+        .dropdown-menu,
+        .navbar-toggler {
+            color: $white;
+            background-color: $alternate;
+            border-color: $white;
+        }
+
+        .navbar-toggler-icon {
+            color: $white;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        .dropdown-item:hover {
+            background-color: $black;
+            color: $primary;
+        }
+    }
+
+
+}

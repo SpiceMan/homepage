@@ -1,3 +1,20 @@
 {
-    "loading": "読み込み中"
+    "loading": "読み込み中",
+    "toggle-theme": "テーマを切り替え",
+    "dark-theme": "ダークテーマ",
+    "light-theme": "ライトテーマ",
+    "settings": "設定",
+    "questy": "クエスティ",
+    "language": {
+        "ja": "日本語",
+        "en": "English"
+    },
+    "page": {
+        "link": {
+            "top": "トップ",
+            "blog": "ブログ",
+            "projects": "プロジェクト",
+            "cv": "職歴書"
+        }
+    }
 }

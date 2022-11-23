@@ -1,18 +1,28 @@
 import { useState, useContext } from "react";
-import { useSpring, animated as a } from "react-spring";
+import ReactAnime from "react-animejs";
+const { Anime, stagger } = ReactAnime;
+import { useSpring, animated as a, config } from "react-spring";
 
-import TagsContext from "../context/tags";
+import LanguageContext from "../context/language";
 
 export const Loading = () => {
-    const [flip, setFlip ] = useState(false);
-    const tags = useContext(TagsContext);
-    const props = useSpring({ 
-        to: { scale: 1.2 }, 
-        from: { scale: 1 },
+    const { tags } = useContext(LanguageContext);
+    const [flip, setFlip] = useState(true);
+
+    const props = useSpring({
+        to: {
+            scale: 1.15,
+        },
+        from: {
+            scale: 0.95 
+        },
         reset: true,
         reverse: flip,
-        onRest: () => setFlip(!flip),
-
-    });
-    return <div className="loading-container"><a.div style={props} className="loading">{tags.loading}</a.div></div>;
+        easing: "easeInOutQuad",
+        config: { duration: 300 },
+        onRest: () => setFlip(!flip)
+    })
+    return <div className="middlecenter-container">
+        <a.div className="loading" style={props}>{tags.loading}</a.div>
+    </div>;
 };

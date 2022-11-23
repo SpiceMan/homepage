@@ -1,3 +1,20 @@
 {
-    "loading": "loading"
+    "loading": "Loading",
+    "toggle-theme": "Switch Theme",
+    "dark-theme": "Dark theme",
+    "light-theme": "Light theme",
+    "settings": "Settings",
+    "questy": "Questy",
+    "language": {
+        "ja": "日本語",
+        "en": "English"
+    },
+    "page": {
+        "link": {
+            "top": "Home",
+            "blog": "Blog",
+            "projects": "Projects",
+            "cv": "CV"
+        }
+    }
 }

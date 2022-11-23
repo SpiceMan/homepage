@@ -1,25 +1,26 @@
 {
   "name": "homepage",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "^5.2.2",
     "parcel": "^2.8.0",
     "react": "^18.2.0",
     "react-animejs": "^0.5.6",
     "react-bootstrap": "^2.6.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
-    "react-spring": "^9.5.5"
+    "react-spring": "^9.5.5",
+    "watch": "^1.0.2"
   },
   "scripts": {
-    "start": "mkdir dist ; cp static/*.* dist/ && parcel src/*.*",
+    "start": "parcel src/index.html",
     "watch": "watch src/*.*",
-    "build": "rm -rf dist && parcel build src/index.js"
+    "build": "rm -rf dist && parcel build src/index.html"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "2.8.0",
     "parcel-reporter-static-files-copy": "^1.4.0",
     "process": "^0.11.10"
-  }
+  } 
 }
