@@ -1,8 +1,9 @@
 import { config } from "process";
 import { useState, useContext, useEffect } from "react";
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import { useSpring, animated as a, config } from "react-spring";
+import { start } from "repl";
 
 import LanguageContext from "../context/language";
 import ThemeContext from "../context/theme";
@@ -18,12 +19,12 @@ const MenuLink = ({ to, text, changeCurrent, drawUnderline, resetUnderline }) =>
     </Nav.Link>;
 };
 
-export const Menu = ({ redraw }) => {
+const MainMenu = ({ redraw }) => {
     const languageContext = useContext(LanguageContext);
     const themeContext = useContext(ThemeContext);
     const [current, setCurrent] = useState(window.location.pathname);
     const [animationProps, setAnimationProps] = useState(null);
-    const [underlinePositioned, setUnderlinePositioned] = useState(false);
+    const [dimensions, setDimensions] = useState({ height: window.innerHeight, width: window.innerWidth });
 
     const props = useSpring(animationProps);
 
@@ -53,7 +54,15 @@ export const Menu = ({ redraw }) => {
         drawUnderline(current);
     }
 
+    useEffect( resetUnderline, [dimensions]);
+
     useEffect( () => {
+        const handleResize = () => {
+            setDimensions({ height: window.innerHeight, width: window.innerWidth });
+        };
+
+        window.addEventListener("resize", handleResize);
+
         changeCurrent(current);
     }, []);
 
@@ -89,3 +98,11 @@ export const Menu = ({ redraw }) => {
         </Navbar>
     );
 };
+
+const MenuRouter = ({ startTransition }) => {
+    return <Routes>
+        <Route path="/*" element={ <MainMenu className="menu" startTransition={startTransition} /> } />;
+    </Routes>
+};
+
+export default MenuRouter;

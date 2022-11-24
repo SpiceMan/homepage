@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useSpring, animated as a, config } from "react-spring";
 
 import "./index.scss";
 
@@ -8,10 +9,8 @@ import LanguageContext from "./context/language";
 import ThemeContext from "./context/theme";
 
 import { Loading } from "./parts/loading";
-import { Menu } from "./parts/menu";
-import { IntroAnimation } from "./animation/intro";
 
-
+import MenuRouter from "./parts/menu";
 import ContentRouter from "./pages/content";
 
 const Content = ({ }) => {
@@ -24,20 +23,52 @@ const Content = ({ }) => {
 
 const App = ({ setTags, loading, setLoading }) => {
     const [animateIntro, setAnimateIntro] = useState(true);
-    const [transition, setAnimateTransition] = useState(false);
+    const [transition, setTransition] = useState(false);
 
+    const body = document.querySelector("body");
+    const intro_props = useSpring({
+        cancel: loading,
+        from: {
+            opacity: 0,
+            top: body.offsetHeight / 2 - 25,
+            left: body.offsetWidth / 2 - 25,
+            width: 50,
+            height: 50,
+            borderRadius: 50,
+        },
+        to: {
+            opacity: 1,
+            borderRadius: 0,
+            top: 0,
+            left: 0,
+            height: 56,
+            width: body.offsetWidth,
+        },
+        config: { duration: 150, ...config.molasses },
+        onRest: () => setAnimateIntro(false)
+    });
+
+    const transition_props = useSpring({
+        cancel: !transition,
+        from: { opacity: 1 },
+        to: { opacity: 0 }
+    });
 
     if (loading) {
         return <Loading />;
     }
 
     if (animateIntro) {
-        return <IntroAnimation setAnimateIntro={setAnimateIntro} />
+        return <a.div style={intro_props} className="content-animation"></a.div>;
     }
 
+    const startTransition = () => {
+        setTransition(true);
+    };
+
     return <>
-        <Menu className="menu" />
-        <Content />
+        <MenuRouter startTransition={startTransition} />
+        <a.div style={transition_props}><Content /></a.div>
     </>;
 };
 
@@ -91,7 +122,6 @@ const Wrapper = () => {
     useEffect(() => {
         if (loadLanguage && !tags.loaded) {
             (async () => {
-                console.log("async load language " + loadLanguage);
                 const res = await fetch(`/tags.${loadLanguage}.json`);
                 const json = await res.json();
                 tags[loadLanguage] = json;
