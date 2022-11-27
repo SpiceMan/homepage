@@ -4,7 +4,6 @@
     "dark-theme": "Dark theme",
     "light-theme": "Light theme",
     "settings": "Settings",
-    "questy": "Questy",
     "language": {
         "ja": "日本語",
         "en": "English"
@@ -15,6 +14,14 @@
             "blog": "Blog",
             "projects": "Projects",
             "cv": "CV"
+        },
+        "content": {
+            "cv": {
+                "title": "Curriculum vitae",
+                "text": "Site still under construction, meanwhile you can read my resume.",
+                "download": "Download resume",
+                "contact": "If you are intested in my resume with my real name, address, etc, contact me in the following email address."
+            }
         }
     }
 }

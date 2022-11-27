@@ -31,6 +31,10 @@ $serif: Merriweather;
     width: 100vw;
 }
 
+.dropdown-menu {
+    z-index: 1;
+}
+
 .underline {
     height: 3px;
     width: 100px;
@@ -50,17 +54,35 @@ $serif: Merriweather;
     justify-content: center;
 }
 
-@media (min-width: 400px) {
+.background-image {
+    position: fixed;
+    opacity: 0.10;
+    z-index: -9999;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+}
+
+@media (min-width: 300px) {
     .content {
         width: 100%;
-        margin-top: 100px;
+    }
+
+    .background-image {
+        bottom: 0;
+        height: 50%;
+        width: 100vw;
     }
 }
 
 @media (min-width: 960px) {
     .content {
         width: 60vw;
-        margin-top: 40px;
+    }
+
+    .background-image {
+        top: 0;
+        height: 100vh;
+        width: 100vw;
     }
 }
 
@@ -73,4 +95,9 @@ $serif: Merriweather;
     width: 50px;
     opacity: 0;
     position: absolute;
+}
+
+
+.title {
+    margin-top: 50px;
 }

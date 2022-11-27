@@ -1,13 +1,18 @@
-$primary: #195f76;
-$alternate: #2ba4cb;
+$primary: #2ba4cb;
+$alternate: #007bbf;
 $secondary: #722bcb;
 
-$white: #f2f2f2;
 $black: #071b21;
+$white: #f2f2f2;
 
 .light-theme {
     color: $black;
     background-color: $white;
+
+    .background-image {
+        background-image: url(../static/img/bg-light.jpeg);
+        background-size: 100%;
+    }
 
     a,
     a:visited,
@@ -63,7 +68,7 @@ $black: #071b21;
         }
 
         .dropdown-item:hover {
-            background-color: $primary;
+            background-color: $alternate;
             color: $white;
         }
     }

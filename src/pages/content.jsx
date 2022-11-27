@@ -14,20 +14,27 @@ const ProjectsList = () => {
     </>
 }
 const CurriculumVitae = () => {
+    const { language, tags } = useContext(LanguageContext);
+
     return <>
+        <h1 className="title">{tags.page.content.cv.title}</h1>
+        <p>{tags.page.content.cv.text}</p>
+        <p><a href={`/cv/spiceman_cv_${language}.pdf`}>{tags.page.content.cv.download}</a></p>
+        <p>{tags.page.content.cv.contact}</p>
+        <p><a href="mailto:spiceman@gmail.com?subject=CV request">spiceman@gmail.com</a></p>
     </>
 }
 
 const TopPageJapanese = () => {
       return <>
-        <h1>ようこそ！</h1>
+        <h1 className="title">ようこそ！</h1>
         <p>アルゼンチンからきた日本住まいの組み込みとウェブ開発者です。</p>
       </>;
 };
 
 const TopPageEnglish = () => {
       return <>
-        <h1>Hello! I'm Marcel Montes.</h1>
+        <h1 className="title">Welcome!</h1>
         <p>I'm an experienced embedded and web software developer from Argentina, living in Japan.</p>
       </>;
 };
@@ -45,7 +52,7 @@ const ContentRouter = () => {
         <Route path="/" element={ <TopPage /> } />
         <Route path="/blog" element={ <Blog /> } />
         <Route path="/projects" element={ <ProjectsList /> } />
-        <Route path="/curriculum-vitae" element={ <Blog /> } />
+        <Route path="/curriculum-vitae" element={ <CurriculumVitae /> } />
     </Routes>
     </div>;
 

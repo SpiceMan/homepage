@@ -21,6 +21,7 @@ const Content = ({ }) => {
     </div>;
 };
 
+
 const App = ({ setTags, loading, setLoading }) => {
     const [animateIntro, setAnimateIntro] = useState(true);
     const [transition, setTransition] = useState(false);
@@ -105,6 +106,7 @@ const Wrapper = () => {
     }, [theme]);
 
     useEffect(() => {
+        // set user language
         let lang = localStorage.getItem("user.language") || "ja";
 
         if (lang !== localStorage.getItem("user.language")) {
@@ -122,7 +124,7 @@ const Wrapper = () => {
     useEffect(() => {
         if (loadLanguage && !tags.loaded) {
             (async () => {
-                const res = await fetch(`/tags.${loadLanguage}.json`);
+                const res = await fetch(`/json/tags.${loadLanguage}.json`);
                 const json = await res.json();
                 tags[loadLanguage] = json;
                 tags.loaded = true;
@@ -143,11 +145,14 @@ const Wrapper = () => {
     }, [loadLanguage]);
 
 
-    return <LanguageContext.Provider value={{ language: language, tags: tags, setLanguage: changeLanguage }}>
-        <ThemeContext.Provider value={{ theme: theme, toggleTheme: toggleTheme }}>
-            <App setTags={setTags} loading={loading} setLoading={setLoading} />
-        </ThemeContext.Provider>
-    </LanguageContext.Provider>;
+    return <>
+        <div className="background-image"></div>
+        <LanguageContext.Provider value={{ language: language, tags: tags, setLanguage: changeLanguage }}>
+            <ThemeContext.Provider value={{ theme: theme, toggleTheme: toggleTheme }}>
+                <App setTags={setTags} loading={loading} setLoading={setLoading} />
+            </ThemeContext.Provider>
+        </LanguageContext.Provider>
+    </>;
 };
 
 const root = createRoot(document.getElementById("root"));
